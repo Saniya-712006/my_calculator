@@ -3,7 +3,7 @@ Unit Tests for Calculator
 Students start with 2 passing tests, then add more
 """
 import pytest
-from src.calculator import add, divide, subtract
+from src.calculator import add, divide, subtract, multiply
 
 class TestBasicOperations:
     """Test basic arithmetic operations"""
@@ -17,6 +17,16 @@ class TestBasicOperations:
         """Test subtracting positive numbers"""
         assert subtract(5, 3) == 2
         assert subtract(10, 4) == 6
+
+    def test_add_negative_numbers(self):
+        """Test adding negative numbers"""
+        assert add(-2,-3) == -5
+        assert add(-10, -15) == -25
+
+    def test_subtract_negative_numbers(self):
+        """Test subtracting negative numbers"""
+        assert subtract(-5, -3) == -2
+        assert subtract(-10, -4) == -6
 
 class TestMultiplyDivideWithValidation:
     """Test multiplication and division with input validation."""
@@ -34,3 +44,32 @@ class TestMultiplyDivideWithValidation:
             divide("10", 2)
 
 # TODO: Students will add TestMultiplyDivide class
+class TestMultiplyDivide:
+    """Test multiplication and division operations."""
+    
+    def test_multiply_positive_numbers(self):
+        """Test multiplying positive numbers."""
+        assert multiply(4, 5) == 20
+        assert multiply(7, 6) == 42
+    
+    def test_divide_positive_numbers(self):
+        """Test dividing positive numbers."""
+        assert divide(20, 4) == 5
+        assert divide(42, 6) == 7
+    
+    def test_multiply_negative_numbers(self):
+        """Test multiplying negative numbers."""
+        assert multiply(-4, -5) == 20
+        assert multiply(-7, -6) == 42
+    
+    def test_divide_negative_numbers(self):
+        """Test dividing negative numbers."""
+        assert divide(-20, -4) == 5
+        assert divide(-42, -6) == 7
+    
+    def test_divide_by_zero(self):
+        """Test division by zero raises ValueError."""
+        with pytest.raises(ValueError, match="Cannot divide by zero"):
+            divide(10, 0)
+        with pytest.raises(ValueError, match="Cannot divide by zero"):
+            divide(-10, 0)
