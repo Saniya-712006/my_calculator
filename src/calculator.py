@@ -33,9 +33,13 @@ def divide(a, b):
     print(f"Result: {result}")
     return result
 
-# TODO: Students will add multiply, divide, power, sqrt functions
+
+
+
 
 if __name__ == "__main__":
     print("🧮 Calculator Module")
     print(f"2 + 3 = {add(2, 3)}")
     print(f"5 - 2 = {subtract(5, 2)}")
+    print(f"4 × 6 = {multiply(4, 6)}")
+    print(f"8 ÷ 2 = {divide(8, 2)}")
